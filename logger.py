@@ -1,32 +1,44 @@
-from logging import *
+import logging  
 
 # Save log messages to a file
 def log_setup():
-    log_format = '%(lineno)s :%(name)s : %(asctime)s : %(message)s  '
+    log_format = '%(lineno)d : %(name)s : %(asctime)s : %(message)s  '
     date_format = '%d-%m-%Y %H:%M:%S'
     
-    basicConfig(
-    filename="Ashish.log",
-    level=DEBUG, 
-    filemode='w', 
-    datefmt=date_format,
-    format=log_format)
+    logging.basicConfig(
+    filename = "C://Ashish.log",
+    level = logging.INFO, 
+    filemode = 'a', 
+    datefmt = date_format,
+    format = log_format)
     
-    logger = getLogger("Ashish")
+    logger = logging.getLogger("Ashish")
     return logger
-logger = log_setup()
+    
+log = log_setup()
+
+def registration():
+    log.info("start the method")
+    print("username")
+    log.info("insert username")
+    print("password")
+    log.info("insert password")
+    
+registration()
+
+
 # Sequence of logger
 #notset("not set message")                  # level 0
-logger.debug("This is a DEBUG message")     # level 10 
-logger.info("This is an INFO message")             # level 20
-logger.warning("This is a WARNING message")        # level 30 by default set
-logger.error("This is an ERROR message")           # level 40
-logger.critical("This is a CRITICAL message")      # level 50
+log.debug("This is a DEBUG message")            # level 10 
+log.info("This is an INFO message")             # level 20
+log.warning("This is a WARNING message")        # level 30 by default set
+log.error("This is an ERROR message")           # level 40
+log.critical("This is a CRITICAL message")      # level 50
 
 ## time format
 
 
 ## filemode 
-# w= write
+# w = write
 # a = append
 
